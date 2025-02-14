@@ -165,6 +165,38 @@ func (c *conn) Receive() ([]Message, error) {
 	return msgs, nil
 }
 
+// ReceiveToBuf receives one or more Messages from netlink to buffer. Buffer
+// should be aligned on a 4-byte boundary.
+func (c *conn) ReceiveToBuf(b []byte) ([]Message, error) {
+	// Read out all available messages
+	n, _, _, _, err := c.s.Recvmsg(context.Background(), b, nil, 0)
+	if err != nil {
+		return nil, err
+	}
+
+	alignedLen := nlmsgAlign(n)
+	if alignedLen > len(b) {
+		alignedLen -= nlmsgAlignTo
+	}
+
+	raw, err := syscall.ParseNetlinkMessage(b[:alignedLen])
+	if err != nil {
+		return nil, err
+	}
+
+	msgs := make([]Message, 0, len(raw))
+	for _, r := range raw {
+		m := Message{
+			Header: sysToHeader(r.Header),
+			Data:   r.Data,
+		}
+
+		msgs = append(msgs, m)
+	}
+
+	return msgs, nil
+}
+
 // Close closes the connection.
 func (c *conn) Close() error { return c.s.Close() }
 
