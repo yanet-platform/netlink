@@ -16,7 +16,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/jsimonetti/rtnetlink"
 	"github.com/mdlayher/ethtool"
-	"github.com/mdlayher/netlink"
+	"github.com/yanet-platform/netlink"
 	"golang.org/x/net/nettest"
 	"golang.org/x/sys/unix"
 )
