@@ -1,12 +1,12 @@
-module github.com/mdlayher/netlink
+module github.com/yanet-platform/netlink
 
-go 1.21
+go 1.22.3
 
 require (
-	github.com/google/go-cmp v0.5.9
-	github.com/mdlayher/socket v0.4.1
-	golang.org/x/net v0.9.0
-	golang.org/x/sys v0.7.0
+	github.com/google/go-cmp v0.6.0
+	github.com/mdlayher/socket v0.5.1
+	golang.org/x/net v0.35.0
+	golang.org/x/sys v0.30.0
 )
 
-require golang.org/x/sync v0.1.0 // indirect
+require golang.org/x/sync v0.3.0 // indirect

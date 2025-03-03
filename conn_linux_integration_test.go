@@ -17,8 +17,8 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"github.com/mdlayher/netlink"
-	"github.com/mdlayher/netlink/nlenc"
+	"github.com/yanet-platform/netlink"
+	"github.com/yanet-platform/netlink/nlenc"
 	"golang.org/x/net/bpf"
 	"golang.org/x/sys/unix"
 )

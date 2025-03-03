@@ -6,8 +6,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/mdlayher/netlink"
-	"github.com/mdlayher/netlink/nlenc"
+	"github.com/yanet-platform/netlink"
+	"github.com/yanet-platform/netlink/nlenc"
 )
 
 // PID is the netlink header PID value assigned by nltest.

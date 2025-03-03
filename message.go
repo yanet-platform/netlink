@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	"github.com/mdlayher/netlink/nlenc"
+	"github.com/yanet-platform/netlink/nlenc"
 )
 
 // Flags which may apply to netlink attribute types when communicating with
